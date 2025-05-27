@@ -4,20 +4,20 @@
 
 USE aula14Triggers;
 
+-- Inserção de clientes
+INSERT INTO tbl_cliente (cliente_nome, cliente_email) VALUES
+('João Silva', 'joao@email.com'),
+('Maria Santos', 'maria@email.com'),
+('Pedro Oliveira', 'pedro@email.com');
+
 -- Inserção de produtos
-INSERT INTO produtos (nome, preco, estoque) VALUES
-('Notebook', 3500.00, 10),
-('Smartphone', 2000.00, 15),
-('Tablet', 1500.00, 8),
-('Monitor', 800.00, 12),
-('Teclado', 150.00, 20);
+INSERT INTO tbl_produto (produto_nome, produto_preco) VALUES
+('Notebook', 3500.00),
+('Smartphone', 2000.00),
+('Tablet', 1500.00);
 
--- Inserção de vendas
-INSERT INTO vendas (data_venda, total) VALUES
-(NOW(), 3500.00),
-(NOW(), 2000.00);
-
--- Inserção de itens de venda
-INSERT INTO itens_venda (venda_id, produto_id, quantidade, preco_unitario) VALUES
-(1, 1, 1, 3500.00),
-(2, 2, 1, 2000.00); 
+-- Inserção de compras
+INSERT INTO tbl_compra (cliente_id, produto_id, compra_data, compra_quantidade) VALUES
+(1, 1, NOW(), 1),
+(2, 2, NOW(), 1),
+(3, 3, NOW(), 2); 

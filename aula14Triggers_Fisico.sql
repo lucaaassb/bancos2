@@ -7,34 +7,28 @@ CREATE DATABASE IF NOT EXISTS aula14Triggers;
 USE aula14Triggers;
 
 -- Criação das tabelas
-CREATE TABLE IF NOT EXISTS produtos (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    preco DECIMAL(10,2) NOT NULL,
-    estoque INT NOT NULL
+CREATE TABLE IF NOT EXISTS tbl_cliente (
+    cliente_id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente_nome VARCHAR(100) NOT NULL,
+    cliente_email VARCHAR(100)
 );
 
-CREATE TABLE IF NOT EXISTS vendas (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    data_venda DATETIME NOT NULL,
-    total DECIMAL(10,2) NOT NULL
+CREATE TABLE IF NOT EXISTS tbl_produto (
+    produto_id INT AUTO_INCREMENT PRIMARY KEY,
+    produto_nome VARCHAR(100) NOT NULL,
+    produto_preco DECIMAL(10,2) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS itens_venda (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    venda_id INT NOT NULL,
+CREATE TABLE IF NOT EXISTS tbl_compra (
+    compra_id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente_id INT NOT NULL,
     produto_id INT NOT NULL,
-    quantidade INT NOT NULL,
-    preco_unitario DECIMAL(10,2) NOT NULL,
-    FOREIGN KEY (venda_id) REFERENCES vendas(id),
-    FOREIGN KEY (produto_id) REFERENCES produtos(id)
+    compra_data DATETIME NOT NULL,
+    compra_quantidade INT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS log_produtos (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    produto_id INT NOT NULL,
-    data_alteracao DATETIME NOT NULL,
-    preco_antigo DECIMAL(10,2),
-    preco_novo DECIMAL(10,2),
-    FOREIGN KEY (produto_id) REFERENCES produtos(id)
+CREATE TABLE IF NOT EXISTS tbl_newsletter (
+    newsletter_id INT AUTO_INCREMENT PRIMARY KEY,
+    newsletter_email VARCHAR(100) NOT NULL,
+    newsletter_data DATETIME NOT NULL
 ); 

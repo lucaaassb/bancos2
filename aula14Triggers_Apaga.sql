@@ -5,14 +5,15 @@
 USE aula14Triggers;
 
 -- Remoção das triggers
-DROP TRIGGER IF EXISTS trg_atualiza_estoque;
-DROP TRIGGER IF EXISTS trg_log_preco_produto;
+DROP TRIGGER IF EXISTS trg_valida_nome;
+DROP TRIGGER IF EXISTS trg_valida_compra;
+DROP TRIGGER IF EXISTS trg_newsletter;
 
 -- Remoção das tabelas
-DROP TABLE IF EXISTS log_produtos;
-DROP TABLE IF EXISTS itens_venda;
-DROP TABLE IF EXISTS vendas;
-DROP TABLE IF EXISTS produtos;
+DROP TABLE IF EXISTS tbl_newsletter;
+DROP TABLE IF EXISTS tbl_compra;
+DROP TABLE IF EXISTS tbl_produto;
+DROP TABLE IF EXISTS tbl_cliente;
 
 -- Remoção do banco de dados
 DROP DATABASE IF EXISTS aula14Triggers; 
